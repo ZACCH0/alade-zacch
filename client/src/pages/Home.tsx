@@ -441,6 +441,28 @@ export default function Home() {
       link: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
       github: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
     },
+      {
+      id: 5,
+      title: "ApexBank Analysis",
+      description: "A Power BI Analytics project examining in-demand skills and salary trends across data roles and countries, using Power Query (ETL), Power Pivot, DAX measures, and interactive slicers.",
+      image: "/projects/ApexBank.png",
+      tags: ["Power BI", "Power Query", "DAX", "Visualization"],
+      category: "data",
+      caseStudyId: "apex-bank-analysis",
+      link: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+      github: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+    },
+     {
+      id: 6,
+      title: "Hospital Management Analysis",
+      description: "A Power BI Analytics project examining in-demand skills and salary trends across data roles and countries, using Power Query (ETL), Power Pivot, DAX measures, and interactive slicers.",
+      image: "/projects/hospital-dashboard.png",
+      tags: ["Power BI", "Power Query", "DAX", "Visualization"],
+      category: "data",
+      caseStudyId: "hospital-dashboard",
+      link: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+      github: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+    },
   ];
 
   const ProjectsSection = () => {
@@ -673,6 +695,14 @@ export default function Home() {
       date: "Apr 22, 2026",
       category: "Data Cleaning",
     },
+
+    {
+      id: 7,
+      title: "Tech Crush Data Analyst Journey",
+      excerpt: "I jot Admission Into TechCrush on April 28 where I Started to Exploring Data Analysis as a career techcrush Expirence has help me a lot and I started thinking As Data Analyst",
+      date: "Apr 28, 2026",
+      category: "Data Analysis",
+    },
   ];
 
   const BlogSection = () => (
@@ -834,7 +864,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-slate-400 text-sm">LinkedIn</p>
-                    <a href="https://linkedin.com/in/alade-zaccheous" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-blue-400 transition-colors">
+                    <a href="https://linkedin.com/in/zacchtech" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-blue-400 transition-colors">
                       linkedin.com/in/zacchtech/
                     </a>
                   </div>

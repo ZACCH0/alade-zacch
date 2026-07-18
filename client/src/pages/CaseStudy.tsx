@@ -88,7 +88,7 @@ export default function CaseStudy() {
       image: "/projects/salary-dashboard.png",
       client: "Personal Project",
       industry: "Data Analytics",
-      duration: "3 weeks",
+      duration: "1 weeks",
       team: "Solo analyst",
       technologies: ["Microsoft Excel", "Advanced Formulas", "Data Validation", "Charts", "Pivot Tables"],
       githubUrl: "https://github.com/ZACCH0/Data_Science_Salary_Dashboard",
@@ -150,6 +150,78 @@ export default function CaseStudy() {
       ],
       testimonial: {
         text: "This was my most technically demanding Excel project. Building a full ETL pipeline, a relational data model, and writing DAX measures from scratch gave me a genuine understanding of how business intelligence works — not just how to make a chart.",
+        author: "Alade Zaccheous",
+        role: "Data Analyst"
+      }
+       },
+    "apex-bank-analysis": {
+      id: "apex-bank-analysis",
+      title: "ApexBank Analysis",
+      subtitle: "End-to-End Power BI Analytics Using Power Query & DAX",
+      image: "/projects/ApexBank.png",
+      client: "Personal Project",
+      industry: "Data Analytics",
+      duration: "1 weeks",
+      team: "TechCrush Project",
+      technologies: ["Power BI", "Power Query","DAX","Pivot Charts", "Slicers"],
+      githubUrl: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+      overview: "A comprehensive Excel analytics project that examines the relationship between job skills and salaries across the data industry. Using a full ETL pipeline via Power Query, a relational data model in Power Pivot, and DAX measures, the project answers four key business questions about which skills are in demand, which pay the most, and how salary trends differ by country and role.",
+      challenges: [
+        { title: "Multi-Table Data Modelling", description: "The raw data was split across two separate datasets — job salary info and job skills info — which needed to be cleaned separately, then related through a shared key." },
+        { title: "ETL Pipeline Design", description: "Building a repeatable Extract, Transform, Load process to clean both datasets — removing duplicates, fixing data types, trimming whitespace — before loading them into the data model." },
+        { title: "Writing DAX Measures", description: "Calculating median salaries across different filters (global, US-only, non-US) required writing precise DAX measures inside Power Pivot rather than relying on standard Pivot Table aggregations." },
+        { title: "Answering Business Questions with Visuals", description: "Translating analytical findings into clear Pivot Charts and slicer-driven dashboards that communicate insights to a non-technical audience." }
+      ],
+      solutions: [
+        { title: "Power Query ETL Pipeline", description: "Created two separate Power Query queries — data_jobs_salary and data_jobs_skills2 — applying transformations including type corrections, column removal, text standardization, and duplicate checks before loading both into the Excel Data Model." },
+        { title: "Power Pivot Relational Model", description: "Built a relationship between the two tables using job_id as the connecting key inside Power Pivot, enabling cross-table analysis of skills and salaries in a single model." },
+        { title: "DAX Measures for Salary Analysis", description: "Wrote three DAX measures — Median Salary, Median Salary US, and Median Salary Non-US — using MEDIAN and CALCULATE functions to compare compensation across geographies and roles." },
+        { title: "Interactive Pivot Charts & Slicers", description: "Built Pivot Charts for skill demand vs. salary and added Country and Job Title slicers, enabling users to dynamically filter all visuals simultaneously." }
+      ],
+      results: [
+        { metric: "SQL #1", description: "Most in-demand skill — appeared in ~65% of Data Analyst job postings" },
+        { metric: "Spark", description: "Highest median salary among all analyzed skills" },
+        { metric: "3 DAX Measures", description: "Global, US, and Non-US median salary calculations" },
+        { metric: "Full ETL", description: "End-to-end Power Query pipeline from raw data to clean data model" }
+      ],
+      testimonial: {
+        text: "This was my most technically demanding Power BI project. Building a full ETL pipeline, a relational data model, and writing DAX measures from scratch gave me a genuine understanding of how business intelligence works — not just how to make a chart.",
+        author: "Alade Zaccheous",
+        role: "Data Analyst"
+      }
+    },
+    "hospital-dashboard": {
+      id: "apex-bank-analysis",
+      title: "Hostpital Management Dashboard",
+      subtitle: "Power BI Analytics Using Power Query & DAX",
+      image: "/projects/hospital-dashboard.png",
+      client: "Personal Project",
+      industry: "Data Analytics",
+      duration: "6 days",
+      team: "TechCrush",
+      technologies: ["Power BI", "Power Query","DAX","Pivot Charts", "Slicers"],
+      githubUrl: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+      overview: "A comprehensive Excel analytics project that examines the relationship between job skills and salaries across the data industry. Using a full ETL pipeline via Power Query, a relational data model in Power Pivot, and DAX measures, the project answers four key business questions about which skills are in demand, which pay the most, and how salary trends differ by country and role.",
+      challenges: [
+        { title: "Multi-Table Data Modelling", description: "The raw data was split across two separate datasets — job salary info and job skills info — which needed to be cleaned separately, then related through a shared key." },
+        { title: "ETL Pipeline Design", description: "Building a repeatable Extract, Transform, Load process to clean both datasets — removing duplicates, fixing data types, trimming whitespace — before loading them into the data model." },
+        { title: "Writing DAX Measures", description: "Calculating median salaries across different filters (global, US-only, non-US) required writing precise DAX measures inside Power Pivot rather than relying on standard Pivot Table aggregations." },
+        { title: "Answering Business Questions with Visuals", description: "Translating analytical findings into clear Pivot Charts and slicer-driven dashboards that communicate insights to a non-technical audience." }
+      ],
+      solutions: [
+        { title: "Power Query ETL Pipeline", description: "Created two separate Power Query queries — data_jobs_salary and data_jobs_skills2 — applying transformations including type corrections, column removal, text standardization, and duplicate checks before loading both into the Excel Data Model." },
+        { title: "Power Pivot Relational Model", description: "Built a relationship between the two tables using job_id as the connecting key inside Power Pivot, enabling cross-table analysis of skills and salaries in a single model." },
+        { title: "DAX Measures for Salary Analysis", description: "Wrote three DAX measures — Median Salary, Median Salary US, and Median Salary Non-US — using MEDIAN and CALCULATE functions to compare compensation across geographies and roles." },
+        { title: "Interactive Pivot Charts & Slicers", description: "Built Pivot Charts for skill demand vs. salary and added Country and Job Title slicers, enabling users to dynamically filter all visuals simultaneously." }
+      ],
+      results: [
+        { metric: "SQL #1", description: "Most in-demand skill — appeared in ~65% of Data Analyst job postings" },
+        { metric: "Spark", description: "Highest median salary among all analyzed skills" },
+        { metric: "3 DAX Measures", description: "Global, US, and Non-US median salary calculations" },
+        { metric: "Full ETL", description: "End-to-end Power Query pipeline from raw data to clean data model" }
+      ],
+      testimonial: {
+        text: "This was my most technically demanding Power BI project. Building a full ETL pipeline, a relational data model, and writing DAX measures from scratch gave me a genuine understanding of how business intelligence works — not just how to make a chart.",
         author: "Alade Zaccheous",
         role: "Data Analyst"
       }
