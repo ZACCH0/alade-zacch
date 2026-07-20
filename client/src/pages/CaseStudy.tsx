@@ -190,42 +190,70 @@ export default function CaseStudy() {
         role: "Data Analyst"
       }
     },
-    "hospital-dashboard": {
-      id: "apex-bank-analysis",
-      title: "Hostpital Management Dashboard",
-      subtitle: "Power BI Analytics Using Power Query & DAX",
-      image: "/projects/hospital-dashboard.png",
-      client: "Personal Project",
-      industry: "Data Analytics",
-      duration: "6 days",
-      team: "TechCrush",
-      technologies: ["Power BI", "Power Query","DAX","Pivot Charts", "Slicers"],
-      githubUrl: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
-      overview: "A comprehensive Excel analytics project that examines the relationship between job skills and salaries across the data industry. Using a full ETL pipeline via Power Query, a relational data model in Power Pivot, and DAX measures, the project answers four key business questions about which skills are in demand, which pay the most, and how salary trends differ by country and role.",
-      challenges: [
-        { title: "Multi-Table Data Modelling", description: "The raw data was split across two separate datasets — job salary info and job skills info — which needed to be cleaned separately, then related through a shared key." },
-        { title: "ETL Pipeline Design", description: "Building a repeatable Extract, Transform, Load process to clean both datasets — removing duplicates, fixing data types, trimming whitespace — before loading them into the data model." },
-        { title: "Writing DAX Measures", description: "Calculating median salaries across different filters (global, US-only, non-US) required writing precise DAX measures inside Power Pivot rather than relying on standard Pivot Table aggregations." },
-        { title: "Answering Business Questions with Visuals", description: "Translating analytical findings into clear Pivot Charts and slicer-driven dashboards that communicate insights to a non-technical audience." }
-      ],
-      solutions: [
-        { title: "Power Query ETL Pipeline", description: "Created two separate Power Query queries — data_jobs_salary and data_jobs_skills2 — applying transformations including type corrections, column removal, text standardization, and duplicate checks before loading both into the Excel Data Model." },
-        { title: "Power Pivot Relational Model", description: "Built a relationship between the two tables using job_id as the connecting key inside Power Pivot, enabling cross-table analysis of skills and salaries in a single model." },
-        { title: "DAX Measures for Salary Analysis", description: "Wrote three DAX measures — Median Salary, Median Salary US, and Median Salary Non-US — using MEDIAN and CALCULATE functions to compare compensation across geographies and roles." },
-        { title: "Interactive Pivot Charts & Slicers", description: "Built Pivot Charts for skill demand vs. salary and added Country and Job Title slicers, enabling users to dynamically filter all visuals simultaneously." }
-      ],
-      results: [
-        { metric: "SQL #1", description: "Most in-demand skill — appeared in ~65% of Data Analyst job postings" },
-        { metric: "Spark", description: "Highest median salary among all analyzed skills" },
-        { metric: "3 DAX Measures", description: "Global, US, and Non-US median salary calculations" },
-        { metric: "Full ETL", description: "End-to-end Power Query pipeline from raw data to clean data model" }
-      ],
-      testimonial: {
-        text: "This was my most technically demanding Power BI project. Building a full ETL pipeline, a relational data model, and writing DAX measures from scratch gave me a genuine understanding of how business intelligence works — not just how to make a chart.",
-        author: "Alade Zaccheous",
-        role: "Data Analyst"
-      }
+  "hospital-dashboard": {
+  id: "hospital-dashboard",
+  title: "Hospital Analytics Dashboard",
+  subtitle: "Transforming Raw Healthcare Data into Actionable Business Intelligence with Power BI",
+   image: "/projects/hospital-dashboard.png",
+  client: "Personal Project",
+  industry: "Healthcare Analytics",
+  duration: "2 weeks",
+  team: "TechCrush",
+  technologies: ["Power BI", "Power Query", "DAX", "Data Modeling", "Excel"],
+  githubUrl: "https://github.com/ZACCH0/Hospital-Analytics-Dashboard",
+  overview: "A comprehensive 4-page Power BI dashboard that transforms raw hospital data into an interactive Business Intelligence platform. The solution covers the full analytics lifecycle — from data cleaning and transformation in Power Query, to relational data modeling, DAX measure development, and executive dashboard design — tracking admissions, billing & revenue, patient demographics, and doctor performance.",
+
+  challenges: [
+    {
+      title: "Multi-Table Data Quality Issues",
+      description: "The raw dataset had inconsistent date formats, billing columns stored as text, missing records, duplicate entries, and incorrect data types spread across multiple related tables — all needing to be resolved before any analysis could begin."
+    },
+    {
+      title: "Building a Relational Data Model",
+      description: "Structuring 6 tables (Admissions, Billing, Patients, Doctors, Wards, Calendar) into a clean star-schema model with correct relationships required careful planning to avoid incorrect filter propagation and inaccurate KPI results."
+    },
+    {
+      title: "DAX Measure Development",
+      description: "Calculating dynamic KPIs like Collection Rate, Readmission Rate, Outstanding Balance, and Average Length of Stay required writing precise DAX measures that respond correctly to all slicer and filter selections across 4 dashboard pages."
+    },
+    {
+      title: "Balancing Usability with Analytical Depth",
+      description: "Designing 4 dashboard pages that each serve a different audience — executives, finance, clinical staff, and HR — while keeping the interface intuitive and not overwhelming users with too much information at once."
     }
+  ],
+
+  solutions: [
+    {
+      title: "Power Query ETL Pipeline",
+      description: "Applied a comprehensive transformation process in Power Query — standardizing dates, converting data types, removing duplicates, handling blank values, standardizing categorical fields, and creating Year, Month, Quarter, and Month Name columns — ensuring clean, reliable data across all 6 tables."
+    },
+    {
+      title: "Star Schema Data Model",
+      description: "Designed a structured relational model with Admissions and Billing as fact tables, and Patients, Doctors, Wards, and a dedicated Calendar table as dimensions — minimizing redundancy, improving filter behavior, and following enterprise BI modeling principles."
+    },
+    {
+      title: "Dynamic DAX KPIs",
+      description: "Developed 12 dynamic DAX measures — including Total Admissions, Collection Rate, Outstanding Balance, Average Satisfaction Score, and Readmission Rate — all responding dynamically to user selections across every dashboard page."
+    },
+    {
+      title: "4-Page Executive Dashboard",
+      description: "Built four purpose-driven dashboard pages: Admission Overview (operational snapshot), Billing & Revenue (financial performance), Patient & Clinical Insights (demographics and diagnoses), and Doctor Performance Analysis (physician productivity and workload) — giving each stakeholder group a tailored view of the data."
+    }
+  ],
+
+  results: [
+    { metric: "4 Pages", description: "Admissions, Billing, Patient Insights, and Doctor Performance" },
+    { metric: "12 KPIs", description: "Dynamic DAX measures covering operations, finance, and clinical performance" },
+    { metric: "6 Tables", description: "Clean star-schema model with fact and dimension tables" },
+    { metric: "Full ETL", description: "End-to-end Power Query pipeline from raw data to analytics-ready model" }
+  ],
+
+  testimonial: {
+    text: "This was my most complete BI project — it required me to think like both a data engineer and a business analyst at the same time. Going through the full lifecycle from messy raw data to a polished executive dashboard taught me what real-world Business Intelligence work actually looks like.",
+    author: "Alade Zaccheous",
+    role: "Data Analyst & Power BI Developer"
+  }
+},
   };
 
   const caseStudy = caseStudies[projectId as string];
