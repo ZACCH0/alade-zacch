@@ -1,0 +1,600 @@
+import { ArrowLeft, CheckCircle, AlertCircle, TrendingUp, Github, ExternalLink } from "lucide-react";
+import { useLocation } from "wouter";
+
+export default function CaseStudy() {
+  const [location, navigate] = useLocation();
+  const projectId = location.split("/").pop();
+
+  const caseStudies: Record<string, any> = {
+    "devspace-blog": {
+      id: "devspace-blog",
+      title: "DevSpace Blog",
+      subtitle: "A Django Blog Platform for Inspiring Stories & Productivity",
+      image: "/projects/devspace-blog.png",
+      client: "Personal Project",
+      industry: "Content & Web Development",
+      duration: "6 weeks",
+      team: "Solo developer",
+      technologies: ["Django", "Python", "HTML", "CSS", "SQLite"],
+      liveUrl: "https://devspaceblogproject.vercel.app",
+      githubUrl: "https://github.com/ZACCH0/devspaceblogproject",
+      overview: "DevSpace Blog is a full-featured blogging platform built with Django that lets users discover inspiring stories, productivity tips, and personal growth insights. It features a complete user authentication system, post management, media uploads, and a clean responsive interface — deployed live on Vercel.",
+      challenges: [
+        { title: "User Authentication System", description: "Building a secure registration, login, and profile management flow so that only authenticated users could create and manage posts." },
+        { title: "Media & File Handling", description: "Handling user-uploaded images for blog posts and profiles, storing them correctly, and serving them reliably on the deployed version." },
+        { title: "Deployment to Vercel", description: "Django is a server-side framework not natively designed for Vercel — configuring it to run correctly in a serverless environment required additional setup." },
+        { title: "Data Modelling", description: "Designing the Post, User, and Category models with the right relationships to support filtering, authorship, and future scalability." }
+      ],
+      solutions: [
+        { title: "Django Auth & Custom User Model", description: "Implemented Django's built-in authentication with custom profile extensions, giving each user a personal space to manage their posts." },
+        { title: "Media Upload Handling", description: "Configured Django's MEDIA_ROOT and MEDIA_URL settings with proper file validation to support image uploads for posts and user avatars." },
+        { title: "Vercel Deployment Configuration", description: "Used a custom vercel.json configuration and WSGI adapter to deploy the Django app on Vercel, making the project publicly accessible." },
+        { title: "Clean Blog Data Model", description: "Designed a clear Post model with author, category, timestamp, and content fields — enabling straightforward CRUD operations and future feature additions." }
+      ],
+      results: [
+        { metric: "Live", description: "Deployed and accessible at devspaceblogproject.vercel.app" },
+        { metric: "Full Auth", description: "Registration, login, and profile management working end-to-end" },
+        { metric: "CRUD", description: "Full post creation, editing, and deletion for authenticated users" },
+        { metric: "35+", description: "Commits across the development history" }
+      ],
+      testimonial: {
+        text: "Building DevSpace Blog taught me the full cycle of Django development — from designing models and views to deploying a live application. It's the foundation of my backend skill set.",
+        author: "Alade Zaccheous",
+        role: "Developer & Builder"
+      }
+    },
+
+    "task-manager": {
+      id: "task-manager",
+      title: "Task Manager",
+      subtitle: "A Cloud-Inspired Django Task Management Application",
+      image: "/projects/task-manager.svg",
+      client: "Personal Project",
+      industry: "Productivity & Web Development",
+      duration: "4 weeks",
+      team: "Solo developer",
+      technologies: ["Django", "Python", "HTML", "CSS", "JavaScript", "SQLite"],
+      githubUrl: "https://github.com/ZACCH0/Taskmanager-Project",
+      overview: "Task Manager is a robust, cloud-inspired task management application built with Django. It helps users organize, track, and manage their daily workflows through a clean, responsive interface — featuring user authentication, task categorization, and real-time status updates.",
+      challenges: [
+        { title: "Task State Management", description: "Tracking tasks across multiple states (pending, in-progress, completed) and keeping the UI in sync with the database without a frontend framework." },
+        { title: "User Isolation", description: "Ensuring that each logged-in user only sees and manages their own tasks, with no data leaking between accounts." },
+        { title: "Categorization System", description: "Designing a flexible category and priority system so users can organize tasks in a way that matches their own workflow." },
+        { title: "Responsive Interface", description: "Delivering a clean, usable UI across different screen sizes using only HTML, CSS, and minimal JavaScript — no heavy frontend libraries." }
+      ],
+      solutions: [
+        { title: "Django Model-Based Task States", description: "Used Django model fields with choices to track task status, paired with view logic to allow quick status updates from the dashboard." },
+        { title: "User-Scoped QuerySets", description: "All task queries are filtered by the currently authenticated user, ensuring strict data isolation between accounts." },
+        { title: "Category & Priority Models", description: "Built a separate Category model linked via ForeignKey to tasks, allowing users to group and filter their work by context or urgency." },
+        { title: "Lightweight Responsive Design", description: "Crafted the UI with plain CSS and minimal JavaScript for real-time interactions, keeping the app fast and dependency-light." }
+      ],
+      results: [
+        { metric: "Full Auth", description: "Secure login, registration, and session management" },
+        { metric: "CRUD+", description: "Create, update, delete, and categorize tasks" },
+        { metric: "Multi-state", description: "Tasks tracked across pending, in-progress, and completed stages" },
+        { metric: "Responsive", description: "Clean UI works across desktop and mobile screens" }
+      ],
+      testimonial: {
+        text: "This project pushed me to think about user experience and data architecture at the same time. It gave me a strong understanding of Django views, models, and authentication working together in a real application.",
+        author: "Alade Zaccheous",
+        role: "Developer & Builder"
+      }
+    },
+
+    "salary-dashboard": {
+      id: "salary-dashboard",
+      title: "Data Science Salary Dashboard",
+      subtitle: "Interactive Excel Dashboard Analysing the Data Science Job Market",
+      image: "/projects/salary-dashboard.png",
+      client: "Personal Project",
+      industry: "Data Analytics",
+      duration: "1 weeks",
+      team: "Solo analyst",
+      technologies: ["Microsoft Excel", "Advanced Formulas", "Data Validation", "Charts", "Pivot Tables"],
+      githubUrl: "https://github.com/ZACCH0/Data_Science_Salary_Dashboard",
+      overview: "An interactive Excel dashboard that analyses real-world data science job market data — transforming raw job posting datasets into a dynamic reporting solution. Users can explore salary patterns by job title, country, and employment type through dropdowns, KPI cards, and chart visualizations.",
+      challenges: [
+        { title: "Raw Data Complexity", description: "The source dataset contained thousands of job postings with inconsistent formats, missing salary values, and mixed employment types that needed to be cleaned before analysis." },
+        { title: "Multi-Criteria Dynamic Filtering", description: "Building a dashboard where selecting a job title, country, and schedule type simultaneously updates all KPIs and charts — without using macros or VBA." },
+        { title: "Meaningful Salary Representation", description: "Choosing median over average salary to prevent outliers from distorting the insights, then computing it dynamically based on all active filters." },
+        { title: "User-Friendly Interface", description: "Making an Excel file feel like a proper dashboard — intuitive, clean, and usable by someone with no data background." }
+      ],
+      solutions: [
+        { title: "Data Cleaning & Structured Tables", description: "Cleaned the raw dataset by standardizing job titles, removing zero-salary records, and converting it into a structured Excel Table for reliable formula referencing." },
+        { title: "Multi-Criteria MEDIAN Formula", description: "Built a nested IF array formula — =MEDIAN(IF((title=A2)*(country=X)*(type=Y)*(salary<>0), salary)) — that calculates median salary dynamically based on all three active filters simultaneously." },
+        { title: "Data Validation Dropdowns", description: "Used Data Validation to restrict all three filter inputs to valid options, preventing user errors and ensuring the formulas always return accurate results." },
+        { title: "Dynamic KPI Cards & Charts", description: "Designed KPI cards showing Median Salary, Top Job Platform, and Top Job Count — all linked to the filter selections — alongside a map and bar chart that update automatically." }
+      ],
+      results: [
+        { metric: "3 Filters", description: "Job title, country, and schedule type work together dynamically" },
+        { metric: "Dynamic KPIs", description: "Median salary, top platform, and job count update automatically" },
+        { metric: "Real Data", description: "Built from actual job posting data, not synthetic figures" },
+        { metric: "Zero VBA", description: "Full interactivity achieved using only Excel formulas and data validation" }
+      ],
+      testimonial: {
+        text: "This project showed me that Excel is a serious analytics platform. Building a multi-criteria dynamic dashboard from scratch — with no VBA — deepened my understanding of how formulas, data validation, and visual design work together.",
+        author: "Alade Zaccheous",
+        role: "Data Analyst"
+      }
+    },
+
+    "job-skills-analysis": {
+      id: "job-skills-analysis",
+      title: "Job Skills & Salary Analysis",
+      subtitle: "End-to-End Excel Analytics Using Power Query, Power Pivot & DAX",
+      image: "/projects/job-skills-analysis.png",
+      client: "Personal Project",
+      industry: "Data Analytics",
+      duration: "4 weeks",
+      team: "Solo analyst",
+      technologies: ["Microsoft Excel", "Power Query", "Power Pivot", "DAX", "Pivot Tables", "Pivot Charts", "Slicers"],
+      githubUrl: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+      overview: "A comprehensive Excel analytics project that examines the relationship between job skills and salaries across the data industry. Using a full ETL pipeline via Power Query, a relational data model in Power Pivot, and DAX measures, the project answers four key business questions about which skills are in demand, which pay the most, and how salary trends differ by country and role.",
+      challenges: [
+        { title: "Multi-Table Data Modelling", description: "The raw data was split across two separate datasets — job salary info and job skills info — which needed to be cleaned separately, then related through a shared key." },
+        { title: "ETL Pipeline Design", description: "Building a repeatable Extract, Transform, Load process to clean both datasets — removing duplicates, fixing data types, trimming whitespace — before loading them into the data model." },
+        { title: "Writing DAX Measures", description: "Calculating median salaries across different filters (global, US-only, non-US) required writing precise DAX measures inside Power Pivot rather than relying on standard Pivot Table aggregations." },
+        { title: "Answering Business Questions with Visuals", description: "Translating analytical findings into clear Pivot Charts and slicer-driven dashboards that communicate insights to a non-technical audience." }
+      ],
+      solutions: [
+        { title: "Power Query ETL Pipeline", description: "Created two separate Power Query queries — data_jobs_salary and data_jobs_skills2 — applying transformations including type corrections, column removal, text standardization, and duplicate checks before loading both into the Excel Data Model." },
+        { title: "Power Pivot Relational Model", description: "Built a relationship between the two tables using job_id as the connecting key inside Power Pivot, enabling cross-table analysis of skills and salaries in a single model." },
+        { title: "DAX Measures for Salary Analysis", description: "Wrote three DAX measures — Median Salary, Median Salary US, and Median Salary Non-US — using MEDIAN and CALCULATE functions to compare compensation across geographies and roles." },
+        { title: "Interactive Pivot Charts & Slicers", description: "Built Pivot Charts for skill demand vs. salary and added Country and Job Title slicers, enabling users to dynamically filter all visuals simultaneously." }
+      ],
+      results: [
+        { metric: "SQL #1", description: "Most in-demand skill — appeared in ~65% of Data Analyst job postings" },
+        { metric: "Spark", description: "Highest median salary among all analyzed skills" },
+        { metric: "3 DAX Measures", description: "Global, US, and Non-US median salary calculations" },
+        { metric: "Full ETL", description: "End-to-end Power Query pipeline from raw data to clean data model" }
+      ],
+      testimonial: {
+        text: "This was my most technically demanding Excel project. Building a full ETL pipeline, a relational data model, and writing DAX measures from scratch gave me a genuine understanding of how business intelligence works — not just how to make a chart.",
+        author: "Alade Zaccheous",
+        role: "Data Analyst"
+      }
+       },
+    "apex-bank-analysis": {
+      id: "apex-bank-analysis",
+      title: "ApexBank Analysis",
+      subtitle: "End-to-End Power BI Analytics Using Power Query & DAX",
+      image: "/projects/ApexBank.png",
+      client: "Personal Project",
+      industry: "Data Analytics",
+      duration: "1 weeks",
+      team: "TechCrush Project",
+      technologies: ["Power BI", "Power Query","DAX","Pivot Charts", "Slicers"],
+      githubUrl: "https://github.com/ZACCH0/Apex-Bank-Analytics-Dashboard-Power-BI",
+      overview: "A comprehensive Excel analytics project that examines the relationship between job skills and salaries across the data industry. Using a full ETL pipeline via Power Query, a relational data model in Power Pivot, and DAX measures, the project answers four key business questions about which skills are in demand, which pay the most, and how salary trends differ by country and role.",
+      challenges: [
+        { title: "Multi-Table Data Modelling", description: "The raw data was split across two separate datasets — job salary info and job skills info — which needed to be cleaned separately, then related through a shared key." },
+        { title: "ETL Pipeline Design", description: "Building a repeatable Extract, Transform, Load process to clean both datasets — removing duplicates, fixing data types, trimming whitespace — before loading them into the data model." },
+        { title: "Writing DAX Measures", description: "Calculating median salaries across different filters (global, US-only, non-US) required writing precise DAX measures inside Power Pivot rather than relying on standard Pivot Table aggregations." },
+        { title: "Answering Business Questions with Visuals", description: "Translating analytical findings into clear Pivot Charts and slicer-driven dashboards that communicate insights to a non-technical audience." }
+      ],
+      solutions: [
+        { title: "Power Query ETL Pipeline", description: "Created two separate Power Query queries — data_jobs_salary and data_jobs_skills2 — applying transformations including type corrections, column removal, text standardization, and duplicate checks before loading both into the Excel Data Model." },
+        { title: "Power Pivot Relational Model", description: "Built a relationship between the two tables using job_id as the connecting key inside Power Pivot, enabling cross-table analysis of skills and salaries in a single model." },
+        { title: "DAX Measures for Salary Analysis", description: "Wrote three DAX measures — Median Salary, Median Salary US, and Median Salary Non-US — using MEDIAN and CALCULATE functions to compare compensation across geographies and roles." },
+        { title: "Interactive Pivot Charts & Slicers", description: "Built Pivot Charts for skill demand vs. salary and added Country and Job Title slicers, enabling users to dynamically filter all visuals simultaneously." }
+      ],
+      results: [
+        { metric: "SQL #1", description: "Most in-demand skill — appeared in ~65% of Data Analyst job postings" },
+        { metric: "Spark", description: "Highest median salary among all analyzed skills" },
+        { metric: "3 DAX Measures", description: "Global, US, and Non-US median salary calculations" },
+        { metric: "Full ETL", description: "End-to-end Power Query pipeline from raw data to clean data model" }
+      ],
+      testimonial: {
+        text: "This was my most technically demanding Power BI project. Building a full ETL pipeline, a relational data model, and writing DAX measures from scratch gave me a genuine understanding of how business intelligence works — not just how to make a chart.",
+        author: "Alade Zaccheous",
+        role: "Data Analyst"
+      }
+    },
+  "hospital-dashboard": {
+  id: "hospital-dashboard",
+  title: "Hospital Analytics Dashboard",
+  subtitle: "Transforming Raw Healthcare Data into Actionable Business Intelligence with Power BI",
+   image: "/projects/hospital-dashboard.png",
+  client: "Personal Project",
+  industry: "Healthcare Analytics",
+  duration: "2 weeks",
+  team: "TechCrush",
+  technologies: ["Power BI", "Power Query", "DAX", "Data Modeling", "Excel"],
+  githubUrl: "https://github.com/ZACCH0/Hospital-Analytics-Dashboard",
+  overview: "A comprehensive 4-page Power BI dashboard that transforms raw hospital data into an interactive Business Intelligence platform. The solution covers the full analytics lifecycle — from data cleaning and transformation in Power Query, to relational data modeling, DAX measure development, and executive dashboard design — tracking admissions, billing & revenue, patient demographics, and doctor performance.",
+
+  challenges: [
+    {
+      title: "Multi-Table Data Quality Issues",
+      description: "The raw dataset had inconsistent date formats, billing columns stored as text, missing records, duplicate entries, and incorrect data types spread across multiple related tables — all needing to be resolved before any analysis could begin."
+    },
+    {
+      title: "Building a Relational Data Model",
+      description: "Structuring 6 tables (Admissions, Billing, Patients, Doctors, Wards, Calendar) into a clean star-schema model with correct relationships required careful planning to avoid incorrect filter propagation and inaccurate KPI results."
+    },
+    {
+      title: "DAX Measure Development",
+      description: "Calculating dynamic KPIs like Collection Rate, Readmission Rate, Outstanding Balance, and Average Length of Stay required writing precise DAX measures that respond correctly to all slicer and filter selections across 4 dashboard pages."
+    },
+    {
+      title: "Balancing Usability with Analytical Depth",
+      description: "Designing 4 dashboard pages that each serve a different audience — executives, finance, clinical staff, and HR — while keeping the interface intuitive and not overwhelming users with too much information at once."
+    }
+  ],
+
+  solutions: [
+    {
+      title: "Power Query ETL Pipeline",
+      description: "Applied a comprehensive transformation process in Power Query — standardizing dates, converting data types, removing duplicates, handling blank values, standardizing categorical fields, and creating Year, Month, Quarter, and Month Name columns — ensuring clean, reliable data across all 6 tables."
+    },
+    {
+      title: "Star Schema Data Model",
+      description: "Designed a structured relational model with Admissions and Billing as fact tables, and Patients, Doctors, Wards, and a dedicated Calendar table as dimensions — minimizing redundancy, improving filter behavior, and following enterprise BI modeling principles."
+    },
+    {
+      title: "Dynamic DAX KPIs",
+      description: "Developed 12 dynamic DAX measures — including Total Admissions, Collection Rate, Outstanding Balance, Average Satisfaction Score, and Readmission Rate — all responding dynamically to user selections across every dashboard page."
+    },
+    {
+      title: "4-Page Executive Dashboard",
+      description: "Built four purpose-driven dashboard pages: Admission Overview (operational snapshot), Billing & Revenue (financial performance), Patient & Clinical Insights (demographics and diagnoses), and Doctor Performance Analysis (physician productivity and workload) — giving each stakeholder group a tailored view of the data."
+    }
+  ],
+
+  results: [
+    { metric: "4 Pages", description: "Admissions, Billing, Patient Insights, and Doctor Performance" },
+    { metric: "12 KPIs", description: "Dynamic DAX measures covering operations, finance, and clinical performance" },
+    { metric: "6 Tables", description: "Clean star-schema model with fact and dimension tables" },
+    { metric: "Full ETL", description: "End-to-end Power Query pipeline from raw data to analytics-ready model" }
+  ],
+
+  testimonial: {
+    text: "This was my most complete BI project — it required me to think like both a data engineer and a business analyst at the same time. Going through the full lifecycle from messy raw data to a polished executive dashboard taught me what real-world Business Intelligence work actually looks like.",
+    author: "Alade Zaccheous",
+    role: "Data Analyst & Power BI Developer"
+  }
+},
+  "shms": {
+  id: "shms",
+  title: "SHMS — Smart Hospital Management System",
+  subtitle: "Full-Stack Django Platform for Hospital Operations",
+   image: "/projects/shms-landing.png",
+  client: "Personal Project",
+  industry: "Healthcare Technology",
+  duration: "Ongoing",
+  team: "Solo developer",
+  technologies: ["Python", "Django 5", "Django REST Framework", "Tailwind CSS", "Chart.js", "PostgreSQL"],
+  liveUrl: "https://smart-hospital-management-system-8zgy.onrender.com/",
+  githubUrl: "https://github.com/ZACCH0/smart-hospital-management-system",
+  overview: "SHMS is a full-stack Django web application for managing hospital operations: patient registration, appointment booking, electronic medical records, billing, pharmacy and laboratory — with role-based dashboards for Admin, Doctor, Receptionist and Patient, plus a REST API. It is in active development and an advanced version is coming soon — this page will be updated to the latest version.",
+
+  challenges: [
+    {
+      title: "Role-Based Access for Four User Types",
+      description: "Admins, doctors, receptionists and patients each need different screens and permissions — with no data leaking between roles."
+    },
+    {
+      title: "Modelling a Whole Hospital",
+      description: "Patients, doctors, appointments, records, prescriptions, billing, pharmacy stock and lab tests are all related — the data model had to stay consistent across a dozen connected areas."
+    },
+    {
+      title: "API Alongside Web Pages",
+      description: "The system needed both human-facing dashboards and machine-readable JSON endpoints, without duplicating business logic."
+    },
+    {
+      title: "Production Deployment",
+      description: "Moving from local SQLite to PostgreSQL with environment-based config and hosting so the app runs reliably online."
+    }
+  ],
+
+  solutions: [
+    {
+      title: "Custom User Model with Roles",
+      description: "One user model with a role field drives login redirects and role-specific dashboards for each user type."
+    },
+    {
+      title: "Modular Django Apps",
+      description: "A separate app per domain (accounts, patients, doctors, appointments, billing, pharmacy, laboratory, notifications) keeps the codebase organized as it grows."
+    },
+    {
+      title: "Django REST Framework API",
+      description: "ViewSets expose doctors, patients and appointments as clean JSON — read-only where safety matters, full access where the workflow needs it."
+    },
+    {
+      title: "Deploy-Ready Configuration",
+      description: "Procfile, build script and runtime files with PostgreSQL for production, keeping local SQLite development untouched."
+    }
+  ],
+
+  results: [
+    { metric: "12 Apps", description: "Covering patients, doctors, appointments, records, billing, pharmacy and lab" },
+    { metric: "4 Roles", description: "Separate dashboards for admin, doctor, receptionist and patient" },
+    { metric: "REST API", description: "Doctors, patients and appointments available as JSON" },
+    { metric: "Live + Growing", description: "Deployed and in active development — update coming soon" }
+  ],
+
+  testimonial: {
+    text: "SHMS is my most ambitious build so far — a real multi-role system with dashboards and an API, not a demo. It keeps growing, and the next update takes it further.",
+    author: "Alade Zaccheous",
+    role: "Python & Django Developer"
+  }
+},
+  "floral-void": {
+  id: "floral-void",
+  title: "Floral Void",
+  subtitle: "Client Website for a Custom Fursuit & Character-Design Business",
+   image: "/projects/floral-void.jpeg",
+  client: "Business owner (client work — owner-stated)",
+  industry: "Creative Business",
+  duration: "[TO_BE_CONFIRMED]",
+  team: "Solo developer (for the client)",
+  technologies: ["[STACK_TO_BE_CONFIRMED]"],
+  liveUrl: "https://floral-void.vercel.app/",
+  overview: "I helped the owner of Floral Void, a custom fursuit and character-design business, build their website: home, gallery, services, pricing and contact pages with a clear commission flow (request form plus Discord, Telegram and email). Wording to be refined by the owner.",
+
+  challenges: [
+    {
+      title: "Showing Highly Visual Products",
+      description: "Fursuits and character art sell on looks — the site needed a gallery-first layout that lets the work speak."
+    },
+    {
+      title: "A Clear Path to Commission",
+      description: "Visitors arrive curious; the site had to guide them from browsing to requesting a commission without friction."
+    },
+    {
+      title: "Multiple Ways to Reach the Artist",
+      description: "Different customers prefer different channels — the contact options had to cover Discord, Telegram and email in one place."
+    },
+    {
+      title: "Transparent Pricing",
+      description: "Custom art needs trust — services and pricing had to be easy to find and understand."
+    }
+  ],
+
+  solutions: [
+    {
+      title: "Gallery-Led Homepage",
+      description: "Recent work takes center stage with a full gallery page behind it, so new visitors immediately see the craft."
+    },
+    {
+      title: "Commission Flow",
+      description: "Every key page leads to the request-a-commission form, keeping the path from interest to order short."
+    },
+    {
+      title: "Unified Contact Section",
+      description: "One contact area brings together the form, Discord, Telegram and email — no hunting through pages."
+    },
+    {
+      title: "Dedicated Services & Pricing Pages",
+      description: "Fursuits, fursona design and avatar services each get clear explanations with pricing a click away."
+    }
+  ],
+
+  results: [
+    { metric: "Live", description: "Deployed and serving the business at floral-void.vercel.app" },
+    { metric: "6 Pages", description: "Home, gallery, services, pricing, contact and terms" },
+    { metric: "3 Channels", description: "Discord, Telegram and email contact in one place" },
+    { metric: "Client", description: "Built for and with the business owner" }
+  ],
+
+  testimonial: {
+    text: "Helping a real business get online taught me to build for customers, not just for code — clear pages, easy contact, and a site the owner can proudly share.",
+    author: "Alade Zaccheous",
+    role: "Developer"
+  }
+},
+  "school-saas": {
+  id: "school-saas",
+  title: "School SaaS",
+  subtitle: "Upcoming — A Cloud Solution for School Management",
+   image: "/projects/school-saas.svg",
+  client: "Personal Project",
+  industry: "Education Technology",
+  duration: "Upcoming",
+  team: "Solo developer",
+  technologies: ["Python", "[STACK_TO_BE_CONFIRMED]"],
+  githubUrl: "https://github.com/ZACCH0/SCHOOL_SAAS",
+  overview: "Upcoming project: I found a real problem in how schools handle their daily operations and records, and I am building a cloud SaaS solution for it. This page will be updated as development progresses.",
+
+  challenges: [
+    {
+      title: "The Problem: Scattered Records",
+      description: "Many schools still run on paper files and disconnected spreadsheets — records get lost and reporting is painful."
+    },
+    {
+      title: "The Problem: Fees & Tracking",
+      description: "Tracking who has paid, who owes, and producing reliable reports takes huge manual effort."
+    },
+    {
+      title: "The Problem: Communication Gaps",
+      description: "Staff, parents and administrators often work from different, outdated information."
+    },
+    {
+      title: "The Goal: One Simple System",
+      description: "Designing something schools will actually adopt means keeping it simple, affordable and easy to learn."
+    }
+  ],
+
+  solutions: [
+    {
+      title: "Planned: Central Cloud Records",
+      description: "One secure place for student, staff and academic records instead of scattered files."
+    },
+    {
+      title: "Planned: Role-Based Access",
+      description: "Admins, teachers and staff each get the views and permissions their job needs."
+    },
+    {
+      title: "Planned: Fees & Billing Module",
+      description: "Track payments, balances and receipts with reports the office can trust."
+    },
+    {
+      title: "Planned: Simple by Design",
+      description: "Clean interface and straightforward workflows so non-technical staff can use it from day one."
+    }
+  ],
+
+  results: [
+    { metric: "Soon", description: "In scoping now — full update coming as it is built" },
+    { metric: "Cloud", description: "Designed as hosted software, no school servers needed" },
+    { metric: "Public", description: "Code will be open on GitHub as it develops" },
+    { metric: "Watch", description: "This page tracks the journey from idea to launch" }
+  ],
+
+  testimonial: {
+    text: "The best products start from real problems. I found one in schools — now I'm building the solution, and documenting every step here.",
+    author: "Alade Zaccheous",
+    role: "Python & Django Developer"
+  }
+},
+  };
+
+  const caseStudy = caseStudies[projectId as string];
+
+  if (!caseStudy) {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">Case Study Not Found</h1>
+          <button
+            onClick={() => navigate("/")}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg font-medium hover:bg-amber-700 transition-all"
+          >
+            <ArrowLeft size={18} /> Back to Portfolio
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-slate-900">
+      {/* Back Button */}
+      <div className="sticky top-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 px-4 py-4">
+        <div className="container max-w-6xl mx-auto flex items-center justify-between">
+          <button
+            onClick={() => navigate("/")}
+            className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium transition-colors"
+          >
+            <ArrowLeft size={18} /> Back to Portfolio
+          </button>
+          <div className="flex gap-3">
+            {caseStudy.liveUrl && (
+              <a href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg text-sm font-medium hover:bg-amber-700 transition-all">
+                <ExternalLink size={14} /> Live Demo
+              </a>
+            )}
+            {caseStudy.githubUrl && (
+              <a href={caseStudy.githubUrl} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:border-amber-600 hover:text-amber-600 transition-all">
+                <Github size={14} /> View Code
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Hero */}
+      <div className="relative">
+        <img src={caseStudy.image} alt={caseStudy.title}
+          className="w-full h-64 md:h-96 object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container max-w-6xl mx-auto px-4 pb-8">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">{caseStudy.title}</h1>
+            <p className="text-lg text-slate-300">{caseStudy.subtitle}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container max-w-6xl mx-auto px-4 py-12">
+        {/* Meta Info */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl">
+          {[
+            { label: "Client", value: caseStudy.client },
+            { label: "Industry", value: caseStudy.industry },
+            { label: "Duration", value: caseStudy.duration },
+            { label: "Team", value: caseStudy.team },
+          ].map((item) => (
+            <div key={item.label}>
+              <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">{item.label}</p>
+              <p className="font-semibold text-slate-900 dark:text-white text-sm">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Technologies */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Technologies Used</h2>
+          <div className="flex flex-wrap gap-3">
+            {caseStudy.technologies.map((tech: string) => (
+              <span key={tech} className="px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-sm font-medium">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Overview */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Project Overview</h2>
+          <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">{caseStudy.overview}</p>
+        </div>
+
+        {/* Challenges & Solutions */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+              <AlertCircle className="text-red-500" size={24} /> Challenges
+            </h2>
+            <div className="space-y-4">
+              {caseStudy.challenges.map((c: any, i: number) => (
+                <div key={i} className="p-4 border border-red-100 dark:border-red-900/30 bg-red-50 dark:bg-red-900/10 rounded-xl">
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{c.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm">{c.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+              <CheckCircle className="text-green-500" size={24} /> Solutions
+            </h2>
+            <div className="space-y-4">
+              {caseStudy.solutions.map((s: any, i: number) => (
+                <div key={i} className="p-4 border border-green-100 dark:border-green-900/30 bg-green-50 dark:bg-green-900/10 rounded-xl">
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{s.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm">{s.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Results */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+            <TrendingUp className="text-amber-500" size={24} /> Results & Outcomes
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {caseStudy.results.map((r: any, i: number) => (
+              <div key={i} className="text-center p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl border border-amber-100 dark:border-amber-800/30">
+                <div className="text-3xl font-bold text-amber-600 mb-2">{r.metric}</div>
+                <div className="text-sm text-slate-600 dark:text-slate-300">{r.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Testimonial */}
+        <div className="p-8 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl text-white">
+          <blockquote className="text-lg italic text-slate-300 mb-6">"{caseStudy.testimonial.text}"</blockquote>
+          <div>
+            <p className="font-semibold text-white">{caseStudy.testimonial.author}</p>
+            <p className="text-amber-400 text-sm">{caseStudy.testimonial.role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
