@@ -498,7 +498,7 @@ export default function CaseStudy() {
       {/* Hero */}
       <div className="relative">
         <img src={caseStudy.image} alt={caseStudy.title}
-          className="w-full h-64 md:h-96 object-cover" />
+          className="w-full h-64 md:h-96 object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
           <div className="container max-w-6xl mx-auto px-4 pb-8">
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">{caseStudy.title}</h1>

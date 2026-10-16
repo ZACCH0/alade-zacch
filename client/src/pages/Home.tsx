@@ -1,8 +1,6 @@
 import { ArrowRight, Code2, Database, BarChart3, ExternalLink, Github, Briefcase, GraduationCap, Calendar, Mail, MessageCircle, Linkedin, Instagram, MapPin, Twitter, Send } from "lucide-react";
 import { useState } from "react";
 
-import SocialShareButtons from "@/components/SocialShareButtons";
-
 /**
  * ZaccchTech Portfolio - Premium Developer Portfolio
  * Design Philosophy: Modern Tech-Forward Minimalism with Warm Accents
@@ -316,7 +314,7 @@ export default function Home() {
       tags: ["Django", "Authentication", "Task Management"],
       category: "web",
       caseStudyId: "task-manager",
-      link: "https://github.com/ZACCH0/Taskmanager-Project",
+      link: "",
       github: "https://github.com/ZACCH0/Taskmanager-Project",
     },
     // Data Analysis Projects
@@ -328,7 +326,7 @@ export default function Home() {
       tags: ["Excel", "Data Analysis", "Dashboard", "Data Validation"],
       category: "data",
       caseStudyId: "salary-dashboard",
-      link: "https://github.com/ZACCH0/Data_Science_Salary_Dashboard",
+      link: "",
       github: "https://github.com/ZACCH0/Data_Science_Salary_Dashboard",
     },
     {
@@ -339,7 +337,7 @@ export default function Home() {
       tags: ["Excel", "Power Query", "DAX", "Power Pivot"],
       category: "data",
       caseStudyId: "job-skills-analysis",
-      link: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+      link: "",
       github: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
     },
       {
@@ -350,8 +348,8 @@ export default function Home() {
       tags: ["Power BI", "Power Query", "DAX", "Visualization"],
       category: "data",
       caseStudyId: "apex-bank-analysis",
-      link: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
-      github: "https://github.com/ZACCH0/JOB-SKILLS_AND-SALARY-ANALYSIS",
+      link: "",
+      github: "https://github.com/ZACCH0/Apex-Bank-Analytics-Dashboard-Power-BI",
     },
      {
       id: 6,
@@ -361,7 +359,7 @@ export default function Home() {
       tags: ["Power BI", "Power Query", "DAX", "Visualization"],
       category: "data",
       caseStudyId: "hospital-dashboard",
-      link: "https://github.com/ZACCH0/Hospital-Analytics-Dashboard",
+      link: "",
       github: "https://github.com/ZACCH0/Hospital-Analytics-Dashboard",
     },
     // New: full-stack + client work
@@ -436,7 +434,7 @@ export default function Home() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-500">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
           {filteredProjects.length > 0 ? filteredProjects.map((project, idx) => (
             <div
               key={project.id}
@@ -444,11 +442,11 @@ export default function Home() {
               style={{ animationDelay: `${idx * 100}ms` }}
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
+              <div className="relative h-36 overflow-hidden bg-slate-200 dark:bg-slate-700">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top group-hover:scale-125 transition-transform duration-700"
                   loading="lazy"
                   decoding="async"
                 />
@@ -456,7 +454,7 @@ export default function Home() {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
+              <div className="p-5">
                 {project.upcoming ? (
                   <span className="inline-block px-3 py-1 mb-3 bg-amber-600 text-white rounded-full text-xs font-semibold">Upcoming — update coming</span>
                 ) : null}
@@ -466,7 +464,7 @@ export default function Home() {
                 <p className="text-blue-600 dark:text-blue-300 text-sm mb-4 line-clamp-2">{project.description}</p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span key={tag} className="px-3 py-1 bg-blue-100 dark:bg-amber-500/60 text-blue-700 dark:text-amber-50 rounded-full text-xs font-semibold hover:bg-blue-200 dark:hover:bg-amber-500/80 transition-all duration-300 border border-blue-300 dark:border-amber-400/60 cursor-pointer">
                       {tag}
@@ -482,35 +480,26 @@ export default function Home() {
                   >
                     View Case Study
                   </a>
-                  {(project.link || project.github) ? (
-                  <div className="flex gap-3">
-                    {project.link ? (
+                  {/* Web projects show Live, data projects show Code */}
+                  {project.category === "web" ? (
+                    project.link ? (
                     <a
                       href={project.link}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg font-medium hover:bg-slate-300 dark:hover:bg-slate-600 transition-all duration-300 transform hover:scale-105"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg font-medium hover:bg-slate-300 dark:hover:bg-slate-600 transition-all duration-300 transform hover:scale-105"
                     >
                       <ExternalLink size={16} /> Live
                     </a>
-                    ) : null}
-                    {project.github ? (
+                    ) : null
+                  ) : (
+                    project.github ? (
                     <a
                       href={project.github}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 rounded-lg font-medium hover:border-amber-600 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-slate-700 transition-all duration-300 transform hover:scale-105"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 rounded-lg font-medium hover:border-amber-600 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-slate-700 transition-all duration-300 transform hover:scale-105"
                     >
                       <Github size={16} /> Code
                     </a>
-                    ) : null}
-                  </div>
-                  ) : null}
-                  {/* Social Share Buttons */}
-                  <div className="pt-4 border-t border-slate-200">
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-3 font-medium">Share this project:</p>
-                    <SocialShareButtons
-                      projectTitle={project.title}
-                      projectUrl={`${typeof window !== 'undefined' ? window.location.origin : ''}/#projects`}
-                      description={project.description}
-                    />
-                  </div>
+                    ) : null
+                  )}
                 </div>
               </div>
             </div>
